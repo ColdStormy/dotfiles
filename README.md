@@ -58,23 +58,10 @@ My personal Windows dev environment setup — PowerShell, Windows Terminal, and 
 ### `Pwsh-Prompt`
 Custom multi-segment prompt: chevron prefix `❯❯` + path + time + git branch + exit code indicator.
 
-### `Pwsh-Alias`
-- `lg` → lazygit
-- `qj` / `fav` → navigate via saved favorites (see Pwsh-QJ)
-- `gitBranch` / `gb` → create/switch branches (auto-prefixes with `jtb/`)
-- Project shortcuts: `goAtf`, `goAlias`, `goVred` (work-specific, customize as needed)
-
 ### `Pwsh-Utils`
 - `Diff-Files <file1> <file2>` — quick file diff
 - `Set-Title <name>` — set terminal title
 - `Print-Colors` — display all ConsoleColor values
-
-### `Pwsh-QJ`
-Persistent favorites system (persists to `~/qj-settings.json`):
-- `qj <name>` — jump to favorite
-- `qj fav <name>` — save current dir
-- `qj fav -r <name>` — remove favorite
-- `qj ls` — list all
 
 ## License
 
