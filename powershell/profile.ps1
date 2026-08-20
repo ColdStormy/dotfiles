@@ -27,7 +27,6 @@ if (Get-Module -ListAvailable -Name Pwsh-Adsk) {
 }
 Import-Module Pwsh-Utils -DisableNameChecking
 Import-Module Pwsh-Prompt -DisableNameChecking
-Import-Module Pwsh-QJ -DisableNameChecking
 function Prompt() {
     Invoke-OnGitRepoEnter
 
@@ -37,3 +36,22 @@ function Prompt() {
     return " "
 }
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
+function gadd {   
+    param(
+        [ValidateSet("all", "none")]
+        [string]$IgnoreSubmodules = "all"
+    ) 
+    git status --short --ignore-submodules=$IgnoreSubmodules |
+        ForEach-Object { $_.Substring(3) } |
+        fzf --multi --prompt="git add: " --marker=* |
+        ForEach-Object { git add -- $_ }
+}
+
+function gs {
+    param(
+        [ValidateSet("all", "none")]
+        [string]$IgnoreSubmodules = "all"
+    )
+
+    git status --ignore-submodules=$IgnoreSubmodules --short --branch
+}
